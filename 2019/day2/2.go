@@ -8,7 +8,10 @@ import (
 	"strings"
 )
 
-func runProgram(codes []int, noun int, verb int) []int {
+func runProgram(inCodes []int, noun int, verb int) []int {
+	codes := append([]int(nil), inCodes...)
+
+	codes[1], codes[2] = noun, verb
 	for i := 0;; i += 4 {
 		switch  codes[i] {
 		case 1: codes[codes[i + 3]] = codes[codes[i + 1]] + codes[codes[i + 2]]
