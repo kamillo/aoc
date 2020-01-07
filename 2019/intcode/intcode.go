@@ -54,7 +54,11 @@ func (c *IntCode) GetLine() (string, State) {
 			return line, state
 		} else {
 			//fmt.Println(out, string(out))
-			line += string(out)
+			if out > 127 {
+				line += strconv.Itoa(out)
+			} else {
+				line += string(out)
+			}
 		}
 	}
 }
