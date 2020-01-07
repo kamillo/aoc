@@ -47,6 +47,30 @@ func (c *IntCode) GetInput() []int {
 	return c.input
 }
 
+func (c *IntCode) GetLine() (string, State) {
+	line := ""
+	for {
+		if out, state := c.Get(); out == 10 || state != Output {
+			return line, state
+		} else {
+			//fmt.Println(out, string(out))
+			line += string(out)
+		}
+	}
+}
+
+func (c *IntCode) PutLine(in string) {
+	runes := []rune(in)
+	var result []int
+
+	for i := 0; i < len(runes); i++ {
+		result = append(result, int(runes[i]))
+	}
+
+	result = append(result, '\n')
+	c.Put(result)
+}
+
 func (c IntCode) Run(debug bool) {
 	for {
 		if res, state := c.Get(); state != Exit {
