@@ -43,3 +43,24 @@ func MaxInArray(v []int) (ret int) {
 
 	return
 }
+
+// Gcd - Greatest common divisor
+func Gcd(a, b int) int {
+	for b != 0 {
+		t := b
+		b = a % b
+		a = t
+	}
+	return a
+}
+
+// Lcm - Least common multiple
+func Lcm(a, b int, integers ...int) int {
+	result := a * b / Gcd(a, b)
+
+	for i := 0; i < len(integers); i++ {
+		result = Lcm(result, integers[i])
+	}
+
+	return result
+}
