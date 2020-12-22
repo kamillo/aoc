@@ -2,13 +2,12 @@ package main
 
 import (
 	"fmt"
+	"github.com/kamillo/aoc/utils"
 	"strings"
-
-	"github.com/kamillo/aoc/fileutil"
 )
 
 func main() {
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 
 	goodPasswords := 0
 	goodPasswordsPart2 := 0

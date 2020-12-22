@@ -1,10 +1,10 @@
-package point
+package utils
 
 type Point2D struct {
 	X, Y int
 }
 
-func New2D(x, y int) Point2D {
+func NewPoint2D(x, y int) Point2D {
 	return Point2D{x, y}
 }
 
@@ -16,6 +16,6 @@ type Point3D struct {
 	X, Y, Z float64
 }
 
-func New3D(x, y, z float64) Point3D {
+func NewPoint3D(x, y, z float64) Point3D {
 	return Point3D{x, y, z}
 }

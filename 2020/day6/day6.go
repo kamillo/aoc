@@ -2,12 +2,11 @@ package main
 
 import (
 	"fmt"
-
-	"github.com/kamillo/aoc/fileutil"
+	"github.com/kamillo/aoc/utils"
 )
 
 func main() {
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 
 	group := ""
 	personsCount, part1, part2 := 0, 0, 0

@@ -2,17 +2,16 @@ package main
 
 import (
 	"fmt"
-	"github.com/kamillo/aoc/fileutil"
-	"github.com/kamillo/aoc/point"
+	"github.com/kamillo/aoc/utils"
 )
 
 func main() {
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 
 	binaryLights := [1000][1000]bool{}
 	analogLights := [1000][1000]int{}
 	for _, line := range lines {
-		upperLeft, bottomRight := point.Point2D{0, 0}, point.Point2D{0, 0}
+		upperLeft, bottomRight := utils.Point2D{0, 0}, utils.Point2D{0, 0}
 		action := ""
 
 		if _, err := fmt.Sscanf(line, "%s %s %d,%d through %d,%d", &action, &action, &upperLeft.X, &upperLeft.Y, &bottomRight.X, &bottomRight.Y); err != nil {

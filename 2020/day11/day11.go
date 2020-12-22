@@ -3,14 +3,14 @@ package main
 import (
 	"bytes"
 	"fmt"
-	"github.com/kamillo/aoc/fileutil"
+	"github.com/kamillo/aoc/utils"
 	"strings"
 	"time"
 )
 
 func main() {
 	clear()
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 	seats := make([][]byte, len(lines))
 	for s, line := range lines {
 		seats[s] = []byte(line)

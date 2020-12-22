@@ -2,16 +2,15 @@ package main
 
 import (
 	"fmt"
+	"github.com/kamillo/aoc/utils"
 	"os"
 	"strings"
-
-	"github.com/kamillo/aoc/fileutil"
 )
 
 func main() {
 	wide := 25
 	tall := 6
-	lines := fileutil.GetLines(os.Args[1])
+	lines := utils.GetLines(os.Args[1])
 	splitted := strings.Split(lines[0], "")
 
 	layersCount := len(splitted) / (wide * tall)

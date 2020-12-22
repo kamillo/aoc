@@ -2,8 +2,7 @@ package main
 
 import (
 	"fmt"
-
-	"github.com/kamillo/aoc/fileutil"
+	"github.com/kamillo/aoc/utils"
 )
 
 type Point4d struct {
@@ -15,15 +14,15 @@ type Point4d struct {
 
 type Grid struct {
 	dimensions int
-	cubes map[Point4d]bool
-	minX int
-	maxX int
-	minY int
-	maxY int
-	minZ int
-	maxZ int
-	minW int
-	maxW int
+	cubes      map[Point4d]bool
+	minX       int
+	maxX       int
+	minY       int
+	maxY       int
+	minZ       int
+	maxZ       int
+	minW       int
+	maxW       int
 }
 
 func getGrid(lines []string) *Grid {
@@ -61,7 +60,7 @@ func (grid *Grid) countNeighbors(x, y, z, w int) (count int) {
 			return
 		}
 
-		if grid.cubes[Point4d{x+dx, y+dy, z+dz, w+dw}] {
+		if grid.cubes[Point4d{x + dx, y + dy, z + dz, w + dw}] {
 			count++
 		}
 	}
@@ -122,7 +121,7 @@ func (grid *Grid) countActive() (count int) {
 }
 
 func main() {
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 
 	grid := getGrid(lines)
 	grid.dimensions = 3

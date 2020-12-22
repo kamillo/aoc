@@ -1,15 +1,15 @@
 package main
 
 import (
+	"github.com/kamillo/aoc/utils"
 	"strconv"
 	"strings"
 
 	"github.com/kamillo/aoc/2019/intcode"
-	"github.com/kamillo/aoc/fileutil"
 )
 
 func main() {
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 	splitted := strings.Split(lines[0], ",")
 	ints := make([]int, len(splitted)*1000)
 	for i := 0; i < len(splitted); i++ {

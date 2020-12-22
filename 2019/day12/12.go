@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/kamillo/aoc/fileutil"
+	"github.com/kamillo/aoc/utils"
 	"math"
 )
 
@@ -31,7 +31,7 @@ func LCM(a, b int, integers ...int) int {
 }
 
 func main() {
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 	//lines = []string{
 	//	"<x=-1, y=0, z=2>",
 	//	"<x=2, y=-10, z=-7>",

@@ -2,16 +2,15 @@ package main
 
 import (
 	"fmt"
+	"github.com/kamillo/aoc/utils"
 	"strconv"
 	"strings"
-
-	"github.com/kamillo/aoc/fileutil"
 )
 
 type keyvalue map[string]string
 
 func main() {
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 	requiredPassportFields := []string{"byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"}
 
 	newlinesCount := 0

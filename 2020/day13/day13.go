@@ -2,13 +2,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/kamillo/aoc/fileutil"
+	"github.com/kamillo/aoc/utils"
 	"strconv"
 	"strings"
 )
 
 func main() {
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 
 	timestamp, _ := strconv.Atoi(lines[0])
 	busses := strings.Split(lines[1], ",")

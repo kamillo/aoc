@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/kamillo/aoc/fileutil"
+	"github.com/kamillo/aoc/utils"
 	"os"
 	"strconv"
 )
@@ -16,7 +16,7 @@ func calcFuel(mass int) int {
 }
 
 func main() {
-	lines := fileutil.GetLines(os.Args[1])
+	lines := utils.GetLines(os.Args[1])
 
 	sum1, sum2 := 0, 0
 	for _, line := range lines {

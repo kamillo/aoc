@@ -2,22 +2,21 @@ package main
 
 import (
 	"fmt"
-	"github.com/kamillo/aoc/fileutil"
-	"github.com/kamillo/aoc/point"
+	"github.com/kamillo/aoc/utils"
 	"math"
 )
 
 func main() {
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 
 	// Part 1
-	ship := point.New2D(0, 0)
+	ship := utils.NewPoint2D(0, 0)
 	directionsMap := map[rune]int{'E': 0, 'S': 1, 'W': 2, 'N': 3}
 	directionsArr := []rune{'E', 'S', 'W', 'N'}
 	heading := 'E'
 
-	var move func(point.Point2D, rune, int) point.Point2D
-	move = func(ship point.Point2D, dir rune, value int) point.Point2D {
+	var move func(utils.Point2D, rune, int) utils.Point2D
+	move = func(ship utils.Point2D, dir rune, value int) utils.Point2D {
 		switch dir {
 		case 'N':
 			ship.Y -= value
@@ -52,7 +51,7 @@ func main() {
 
 	// Part 2
 	ship.X, ship.Y = 0, 0
-	waypoint := point.New2D(10, -1)
+	waypoint := utils.NewPoint2D(10, -1)
 	heading = 'E'
 
 	for _, line := range lines {

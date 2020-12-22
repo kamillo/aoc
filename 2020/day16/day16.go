@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/kamillo/aoc/fileutil"
+	"github.com/kamillo/aoc/utils"
 	"strconv"
 	"strings"
 )
@@ -13,7 +13,7 @@ type Range struct {
 }
 
 func main() {
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 	//lines := fileutil.GetLines("test.txt")
 	//lines := fileutil.GetLines("test2.txt")
 

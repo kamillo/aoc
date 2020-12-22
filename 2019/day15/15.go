@@ -3,38 +3,37 @@ package main
 import (
 	"fmt"
 	"github.com/kamillo/aoc/2019/intcode"
-	"github.com/kamillo/aoc/fileutil"
-	"github.com/kamillo/aoc/point"
+	"github.com/kamillo/aoc/utils"
 	"math"
 )
 
-func Left(p point.Point2D) point.Point2D {
-	return point.New2D(p.X-1, p.Y)
+func Left(p utils.Point2D) utils.Point2D {
+	return utils.NewPoint2D(p.X-1, p.Y)
 }
-func Right(p point.Point2D) point.Point2D {
-	return point.New2D(p.X+1, p.Y)
+func Right(p utils.Point2D) utils.Point2D {
+	return utils.NewPoint2D(p.X+1, p.Y)
 }
-func Top(p point.Point2D) point.Point2D {
-	return point.New2D(p.X, p.Y+1)
+func Top(p utils.Point2D) utils.Point2D {
+	return utils.NewPoint2D(p.X, p.Y+1)
 }
-func Bottom(p point.Point2D) point.Point2D {
-	return point.New2D(p.X, p.Y-1)
+func Bottom(p utils.Point2D) utils.Point2D {
+	return utils.NewPoint2D(p.X, p.Y-1)
 }
 
 func main() {
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 	ints := intcode.ParseInput(lines[0])
 	intCode := intcode.Make(ints)
 
-	area := make(map[point.Point2D]int)
-	distances := make(map[point.Point2D]float64)
+	area := make(map[utils.Point2D]int)
+	distances := make(map[utils.Point2D]float64)
 
 	var res int
-	var found point.Point2D
+	var found utils.Point2D
 	dist := 0.0
 	dir := 2
 	iter := 0
-	pos := point.New2D(500, 500)
+	pos := utils.NewPoint2D(500, 500)
 
 	for {
 		intCode.Put([]int{dir})
@@ -103,11 +102,11 @@ func main() {
 	area[found] = 3
 	for needsAir {
 		needsAir = false
-		areaTemp := make(map[point.Point2D]int)
+		areaTemp := make(map[utils.Point2D]int)
 		for k, v := range area {
 			if v == 1 {
 				needsAir = true
-				neighbors := []point.Point2D{Top(k), Bottom(k), Left(k), Right(k)}
+				neighbors := []utils.Point2D{Top(k), Bottom(k), Left(k), Right(k)}
 				for _, n := range neighbors {
 					if area[n] == 3 {
 						v = 3

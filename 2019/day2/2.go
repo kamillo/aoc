@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/kamillo/aoc/fileutil"
+	"github.com/kamillo/aoc/utils"
 	"os"
 	"strconv"
 	"strings"
@@ -12,10 +12,12 @@ func runProgram(inCodes []int, noun int, verb int) []int {
 	codes := append([]int(nil), inCodes...)
 
 	codes[1], codes[2] = noun, verb
-	for i := 0;; i += 4 {
-		switch  codes[i] {
-		case 1: codes[codes[i + 3]] = codes[codes[i + 1]] + codes[codes[i + 2]]
-		case 2: codes[codes[i + 3]] = codes[codes[i + 1]] * codes[codes[i + 2]]
+	for i := 0; ; i += 4 {
+		switch codes[i] {
+		case 1:
+			codes[codes[i+3]] = codes[codes[i+1]] + codes[codes[i+2]]
+		case 2:
+			codes[codes[i+3]] = codes[codes[i+1]] * codes[codes[i+2]]
 		case 99:
 			return codes
 		}
@@ -23,7 +25,7 @@ func runProgram(inCodes []int, noun int, verb int) []int {
 }
 
 func main() {
-	lines := fileutil.GetLines(os.Args[1])
+	lines := utils.GetLines(os.Args[1])
 	//lines := []string{"1,1,1,4,99,5,6,0,99"}
 
 	for _, line := range lines {

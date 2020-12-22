@@ -2,14 +2,13 @@ package main
 
 import (
 	"fmt"
+	"github.com/kamillo/aoc/utils"
 	"os"
 	"strings"
-
-	"github.com/kamillo/aoc/fileutil"
 )
 
 func main() {
-	lines := fileutil.GetLines(os.Args[1])
+	lines := utils.GetLines(os.Args[1])
 	// lines := [1]string{"^v^v^v^v^v"}
 	{
 		houses := make(map[[2]int]int)

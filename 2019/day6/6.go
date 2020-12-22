@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
+	"github.com/kamillo/aoc/utils"
 	"os"
 	"strings"
 
 	"github.com/albertorestifo/dijkstra"
-	"github.com/kamillo/aoc/fileutil"
 )
 
 type Object struct {
@@ -15,7 +15,7 @@ type Object struct {
 }
 
 func main() {
-	lines := fileutil.GetLines(os.Args[1])
+	lines := utils.GetLines(os.Args[1])
 	//lines = []string{"COM)B", "B)C", "C)D", "D)E", "E)F", "B)G", "G)H", "D)I", "E)J", "J)K", "K)L"}
 
 	graph := dijkstra.Graph{}

@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 	"github.com/kamillo/aoc/2019/intcode"
-	"github.com/kamillo/aoc/fileutil"
+	"github.com/kamillo/aoc/utils"
 )
 
 func main() {
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 	ints := intcode.ParseInput(lines[0])
 	intCode := intcode.Make(ints)
 

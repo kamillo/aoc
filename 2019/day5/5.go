@@ -2,11 +2,10 @@ package main
 
 import (
 	"fmt"
+	"github.com/kamillo/aoc/utils"
 	"os"
 	"strconv"
 	"strings"
-
-	"github.com/kamillo/aoc/fileutil"
 )
 
 // ABCDE
@@ -92,7 +91,7 @@ func runProgram(inCodes []int, systemId int) []int {
 }
 
 func main() {
-	lines := fileutil.GetLines(os.Args[1])
+	lines := utils.GetLines(os.Args[1])
 
 	for _, line := range lines {
 		splitted := strings.Split(line, ",")

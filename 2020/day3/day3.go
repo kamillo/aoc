@@ -2,8 +2,7 @@ package main
 
 import (
 	"fmt"
-
-	"github.com/kamillo/aoc/fileutil"
+	"github.com/kamillo/aoc/utils"
 )
 
 type slope struct {
@@ -12,7 +11,7 @@ type slope struct {
 }
 
 func main() {
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 
 	fmt.Println("Part 1: ", countTrees(lines, slope{3, 1}))
 

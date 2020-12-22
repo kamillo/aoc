@@ -2,13 +2,12 @@ package main
 
 import (
 	"fmt"
-	"github.com/kamillo/aoc/fileutil"
 	"github.com/kamillo/aoc/utils"
 	"strconv"
 )
 
 func main() {
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 	player1, player2 := parseDecks(lines)
 
 	winner := game(player1, player2)
