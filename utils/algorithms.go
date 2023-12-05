@@ -1,5 +1,7 @@
 package utils
 
+import "math/bits"
+
 func HeapPermutation(a []interface{}) [][]interface{} {
 	var permutations [][]interface{}
 	var generate func([]interface{}, int)
@@ -23,10 +25,18 @@ func HeapPermutation(a []interface{}) [][]interface{} {
 	return permutations
 }
 
-func Combinations(set []interface{}) (subsets [][]interface{}) {
+func Combinations(set []interface{}, n int) (subsets [][]interface{}) {
 	length := uint(len(set))
 
+	if n > len(set) {
+		n = len(set)
+	}
+
 	for subsetBits := 1; subsetBits < (1 << length); subsetBits++ {
+		if n > 0 && bits.OnesCount(uint(subsetBits)) != n {
+			continue
+		}
+
 		var subset []interface{}
 
 		for object := uint(0); object < length; object++ {

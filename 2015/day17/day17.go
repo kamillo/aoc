@@ -9,12 +9,24 @@ import (
 func main() {
 	containers := utils.GetLinesAsInterface("input.txt")
 
-	sum := 0
-	for _, c := range utils.Combinations(containers) {
+	part1 := 0
+	min := len(containers)
+	for _, c := range utils.Combinations(containers, 0) {
 		if utils.Sum(c) == 150 {
-			sum++
+			part1++
+			if len(c) < min {
+				min = len(c)
+			}
 		}
 	}
 
-	fmt.Println("Part 1: ", sum)
+	part2 := 0
+	for _, c := range utils.Combinations(containers, min) {
+		if utils.Sum(c) == 150 {
+			part2++
+		}
+	}
+
+	fmt.Println("Part 1: ", part1)
+	fmt.Println("Part 2: ", part2)
 }
