@@ -11,8 +11,8 @@ func main() {
 	sum := 0
 	disk := make([][]byte, 128)
 	for x := 0; x < 128; x++ {
-		// input := "stpzcrnm" + "-" + strconv.Itoa(x)
-		input := "flqrgnkx" + "-" + strconv.Itoa(x)
+		input := "stpzcrnm" + "-" + strconv.Itoa(x)
+		// input := "flqrgnkx" + "-" + strconv.Itoa(x)
 		lengths := []int{}
 		for _, l := range input {
 			lengths = append(lengths, int(l))
@@ -30,13 +30,13 @@ func main() {
 	}
 	fmt.Println(sum)
 
-	reg := 3
+	reg := int('a')
 	regions := map[int]bool{}
 	for y := range disk {
 		for x := range disk[y] {
 			if disk[y][x] == '1' {
 				reg++
-				MarkAdj(y, x, &disk, '1', byte(reg))
+				MarkAdj(y, x, &disk, '1', '#')
 				regions[reg] = true
 			}
 		}
@@ -98,23 +98,6 @@ func knotHash(input []int, rounds int) [16]int {
 	}
 
 	return dense
-}
-
-func CountAdj(x int, y int, grid [][]byte, char byte) (adj int) {
-	if x+1 < len(grid) && grid[x+1][y] == char {
-		adj++
-	}
-	if y+1 < len(grid[x]) && grid[x][y+1] == char {
-		adj++
-	}
-	if x > 0 && grid[x-1][y] == char {
-		adj++
-	}
-	if y > 0 && grid[x][y-1] == char {
-		adj++
-	}
-
-	return adj
 }
 
 func MarkAdj(x int, y int, grid *[][]byte, char byte, mark byte) {
