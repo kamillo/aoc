@@ -1,1 +1,23 @@
+<<<<<<< HEAD
 *.txt
+vendor/modules.txt
+vendor/github.com/albertorestifo/dijkstra/.editorconfig
+vendor/github.com/albertorestifo/dijkstra/.gitignore
+vendor/github.com/albertorestifo/dijkstra/.travis.yml
+vendor/github.com/albertorestifo/dijkstra/dijkstra.go
+vendor/github.com/albertorestifo/dijkstra/LICENSE
+vendor/github.com/albertorestifo/dijkstra/queue.go
+vendor/github.com/albertorestifo/dijkstra/README.md
+vendor/github.com/fzipp/astar/astar.go
+vendor/github.com/fzipp/astar/LICENSE
+vendor/github.com/fzipp/astar/pqueue.go
+vendor/github.com/fzipp/astar/README.md
+vendor/github.com/kamillo/aoc/utils/algorithms.go
+vendor/github.com/kamillo/aoc/utils/getline.go
+vendor/github.com/kamillo/aoc/utils/grid.go
+vendor/github.com/kamillo/aoc/utils/line.go
+vendor/github.com/kamillo/aoc/utils/minmax.go
+vendor/github.com/kamillo/aoc/utils/point.go
+vendor/github.com/kamillo/aoc/utils/slice.go
+vendor/github.com/kamillo/aoc/utils/string.go
+vendor/github.com/kamillo/aoc/utils/hex/hex.go
