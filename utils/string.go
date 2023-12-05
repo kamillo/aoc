@@ -14,3 +14,10 @@ func ToIntArr(s string, sep string) (ret []int) {
 
 	return
 }
+
+func Reverse(s string) (rs string) {
+	for _, r := range s {
+		rs = string(r) + rs
+	}
+	return
+}
