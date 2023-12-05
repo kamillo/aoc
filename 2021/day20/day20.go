@@ -12,11 +12,22 @@ func main() {
 	algorithm := lines[0]
 	image := lines[2:]
 
-	enchanced := enchance(image, algorithm)
-	enchanced = enchance(enchanced, algorithm)
-	count := 0
-	for _, line := range enchanced {
-		fmt.Println(line)
+	enchanced := image
+	for i := 0; i < 2; i++ {
+		enchanced = enchance(enchanced, algorithm)
+	}
+	fmt.Println("Part 1:", count(enchanced))
+
+	enchanced = image
+	for i := 0; i < 50; i++ {
+		enchanced = enchance(enchanced, algorithm)
+	}
+	fmt.Println("Part 2:", count(enchanced))
+}
+
+func count(image []string) (count int) {
+	for _, line := range image {
+		//fmt.Println(line)
 		for _, c := range line {
 			if c == '#' {
 				count++
@@ -24,8 +35,10 @@ func main() {
 		}
 	}
 
-	fmt.Println(count)
+	return
 }
+
+var outsideVal = "0"
 
 func enchance(input []string, algorithm string) (image []string) {
 	for y := -1; y < len(input)+1; y++ {
@@ -38,20 +51,31 @@ func enchance(input []string, algorithm string) (image []string) {
 		image = append(image, line)
 	}
 
+	if outsideVal == "0" {
+		outsideVal = toString(algorithm[0])
+	} else {
+		outsideVal = toString(algorithm[len(algorithm)-1])
+	}
+
 	return
 }
 
+func toString(c byte) string {
+	if c == '#' {
+		return "1"
+	}
+
+	return "0"
+}
+
 func getPixels(targetX int, targetY int, image []string) (line string) {
-	for y := targetY - 1; y <= targetY+1; y++ {
-		for x := targetX - 1; x <= targetX+1; x++ {
+
+	for y := targetY - 1; y < targetY+2; y++ {
+		for x := targetX - 1; x < targetX+2; x++ {
 			if y < 0 || x < 0 || y >= len(image) || x >= len(image[0]) {
-				line += "0"
+				line += outsideVal
 			} else {
-				if image[y][x] == '.' {
-					line += "0"
-				} else {
-					line += "1"
-				}
+				line += toString(image[y][x])
 			}
 		}
 	}
