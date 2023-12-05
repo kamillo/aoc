@@ -56,3 +56,16 @@ func GetLinesAs2dArray(fileName string) (result [][]byte) {
 
 	return
 }
+
+func GetLinesAs2dIntArray(fileName string) (result [][]int) {
+	for _, line := range GetLines(fileName) {
+		result = append(result, []int{})
+		for _, c := range line {
+			if i, err := strconv.Atoi(string(c)); err == nil {
+				result[len(result)-1] = append(result[len(result)-1], i)
+			}
+		}
+	}
+
+	return
+}
