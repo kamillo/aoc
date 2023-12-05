@@ -44,6 +44,19 @@ func MaxInArray(v []int) (ret int) {
 	return
 }
 
+type CompareFunc func(interface{}, interface{}) bool
+
+// MaxInAnyArray - Find maximal value from array
+func MaxInAnyArray(v []interface{}, fn CompareFunc) (ret interface{}) {
+	for i, value := range v {
+		if i == 0 || fn(value, ret) {
+			ret = value
+		}
+	}
+
+	return
+}
+
 // Gcd - Greatest common divisor
 func Gcd(a, b int) int {
 	for b != 0 {

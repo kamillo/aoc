@@ -50,3 +50,17 @@ func Combinations(set []interface{}, n int) (subsets [][]interface{}) {
 	}
 	return subsets
 }
+
+func CombinationsWithRepetitions(n int, lst []string) [][]string {
+	if n == 0 {
+		return [][]string{nil}
+	}
+	if len(lst) == 0 {
+		return nil
+	}
+	r := CombinationsWithRepetitions(n, lst[1:])
+	for _, x := range CombinationsWithRepetitions(n-1, lst) {
+		r = append(r, append(x, lst[0]))
+	}
+	return r
+}
