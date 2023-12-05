@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="78b1f260-177c-412e-a316-4f87ede0a3df" name="Default Changelist" comment="[Go] Add day18/2015">
+      <change afterPath="$PROJECT_DIR$/2015/day11/day11.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2015/day14/day15.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2015/day14/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2015/day14/test.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2015/day19/day19.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2015/day19/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2015/day19/test.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2020/day20/day20.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2020/day20/input.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2020/day20/test.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2020/day20_1/day20.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/2020/day20_1/input.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/aoc.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aoc.iml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+        <option value="Go Application" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" url="file:///usr/local/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="ProjectId" id="1lNwRb8OdSskGzU8XnvhhBEDCD6" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go Application" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Module.GOPATH.is.expanded" value="false" />
+    <property name="configurable.Project.GOPATH.is.expanded" value="true" />
+    <property name="go.formatter.settings.were.checked" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/utils/hex" />
+      <recent name="$PROJECT_DIR$/utils" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/2020/day24_1" />
+      <recent name="$PROJECT_DIR$/2020/day20_1" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go Build.go build day19.go">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="aoc" />
+      <working_directory value="$PROJECT_DIR$/2020" />
+      <go_parameters value="-i" />
+      <kind value="PACKAGE" />
+      <package value="github.com/kamillo/aoc" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build day15.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="aoc" />
+      <working_directory value="$PROJECT_DIR$/2020" />
+      <kind value="FILE" />
+      <package value="github.com/kamillo/aoc" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/2015/day15/day15.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build day17.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="aoc" />
+      <working_directory value="$PROJECT_DIR$/2015/day17" />
+      <kind value="FILE" />
+      <package value="github.com/kamillo/aoc" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/2015/day17/day17.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build day18.go " type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="aoc" />
+      <working_directory value="$PROJECT_DIR$/2015/day18" />
+      <kind value="FILE" />
+      <package value="github.com/kamillo/aoc" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/2015/day18/day18.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build day19.go" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="aoc" />
+      <working_directory value="$PROJECT_DIR$/2015/day19" />
+      <kind value="FILE" />
+      <package value="github.com/kamillo/aoc" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/2015/day19/day19.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build github.com/kamillo/aoc/2015/day15" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="aoc" />
+      <working_directory value="$PROJECT_DIR$/2015/day15" />
+      <kind value="PACKAGE" />
+      <package value="github.com/kamillo/aoc/2015/day15" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/2015/day14/day15.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build github.com/kamillo/aoc/2015/day16" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="aoc" />
+      <working_directory value="$PROJECT_DIR$/2015/day16" />
+      <kind value="PACKAGE" />
+      <package value="github.com/kamillo/aoc/2015/day16" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/2015/day16/day16.go" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build github.com/kamillo/aoc/2015/day17" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="aoc" />
+      <working_directory value="$PROJECT_DIR$/2015/day17" />
+      <kind value="PACKAGE" />
+      <package value="github.com/kamillo/aoc/2015/day17" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$/2015/day17/day17.go" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Go Build.go build day15.go" />
+      <item itemvalue="Go Build.go build day17.go" />
+      <item itemvalue="Go Build.go build day18.go " />
+      <item itemvalue="Go Build.go build day19.go" />
+      <item itemvalue="Go Build.go build github.com/kamillo/aoc/2015/day15" />
+      <item itemvalue="Go Build.go build github.com/kamillo/aoc/2015/day16" />
+      <item itemvalue="Go Build.go build github.com/kamillo/aoc/2015/day17" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build github.com/kamillo/aoc/2015/day17" />
+        <item itemvalue="Go Build.go build day17.go" />
+        <item itemvalue="Go Build.go build github.com/kamillo/aoc/2015/day16" />
+        <item itemvalue="Go Build.go build github.com/kamillo/aoc/2015/day15" />
+        <item itemvalue="Go Build.go build day15.go" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="[Go] Add day6/2015" />
+    <MESSAGE value="[Go] Add day19/2020" />
+    <MESSAGE value="[Go] Add day21/2020" />
+    <MESSAGE value="[Go] Add slice utils" />
+    <MESSAGE value="[Go] Add day22/2020" />
+    <MESSAGE value="[Go] Reorganize utils" />
+    <MESSAGE value="[Go] Add day23/2020" />
+    <MESSAGE value="[Go] Add basic hexagon util" />
+    <MESSAGE value="[Go] Add day24/2020" />
+    <MESSAGE value="[Go] Add day25/2020" />
+    <MESSAGE value="[Go] Rename directories for days 1-9" />
+    <MESSAGE value="[Go] Add day14/2020" />
+    <MESSAGE value="[Go] Add day7/2015" />
+    <MESSAGE value="[Go] Add day8/2015" />
+    <MESSAGE value="[Go] Add algorithms utils" />
+    <MESSAGE value="[Go] Add day9/2015" />
+    <MESSAGE value="[Go] Add day10/2015" />
+    <MESSAGE value="[Go] Add day13/2015" />
+    <MESSAGE value="[Go] Add day12/2015" />
+    <MESSAGE value="[Go] Add day15/2020" />
+    <MESSAGE value="[Go] Add day16/2020" />
+    <MESSAGE value="[Go] Add JoinInts to utils" />
+    <MESSAGE value="[Go] Add GetLinesAs2dArray to utils" />
+    <MESSAGE value="[Go] Add grid utils" />
+    <MESSAGE value="[Go] Add day18/2015" />
+    <option name="LAST_COMMIT_MESSAGE" value="[Go] Add day18/2015" />
+  </component>
+</project>
