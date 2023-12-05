@@ -2,6 +2,8 @@ package intcode
 
 import (
 	"fmt"
+	"strconv"
+	"strings"
 )
 
 // ABCDE
@@ -17,6 +19,16 @@ type IntCode struct {
 	input []int
 	base  int
 	ptr   int
+}
+
+func ParseInput(commands string) []int {
+	splitted := strings.Split(commands, ",")
+	ints := make([]int, len(splitted)*1000)
+	for i := 0; i < len(splitted); i++ {
+		ints[i], _ = strconv.Atoi(splitted[i])
+	}
+
+	return ints
 }
 
 func Make(codes []int) IntCode {
