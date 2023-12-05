@@ -43,6 +43,10 @@ func (c *IntCode) Put(in []int) {
 	c.input = append(c.input, in...)
 }
 
+func (c *IntCode) GetInput() []int {
+	return c.input
+}
+
 func (c IntCode) Run(debug bool) {
 	for {
 		if res, state := c.Get(); state != Exit {
