@@ -2,111 +2,144 @@ package main
 
 import (
 	"fmt"
+	"sort"
 	"strings"
 
 	"github.com/kamillo/aoc/utils"
 )
 
 func main() {
-	notes := utils.GetLines("test.txt")
+	notes := utils.GetLines("input.txt")
 
 	part1 := 0
+	part2 := 0
 	for _, line := range notes {
 		split := strings.Split(line, " | ")
 
 		pattern := strings.Fields(split[0])
 		output := strings.Fields(split[1])
 
-		connection := map[string]string{}
 		digits := map[string]int{}
-		missing := []string{}
-		for _, p := range pattern {
-			switch len(p) {
-			case 2:
+		numbers := map[int]string{}
+
+		sort.Slice(pattern, func(i int, j int) bool {
+			return len(pattern[i]) < len(pattern[j])
+		})
+
+		c := ""
+		f := ""
+		i := 0
+		bd := ""
+		for len(digits) != 10 {
+
+			pat := pattern[i]
+			i = (i + 1) % (len(pattern))
+
+			ps := []rune(pat)
+			sort.Slice(ps, func(i int, j int) bool {
+				return ps[i] < ps[j]
+			})
+			p := string(ps)
+
+			if len(p) == 2 {
 				digits[p] = 1
-				connection["c"] = string(p[0])
-				connection["f"] = string(p[1])
-			case 3:
+				numbers[1] = p
+			}
+
+			if len(p) == 3 {
 				digits[p] = 7
-				connection["a"] = string(p[0])
-				connection["c"] = string(p[1])
-				connection["f"] = string(p[2])
-			case 4:
+				numbers[7] = p
+			}
+
+			if len(p) == 4 {
 				digits[p] = 4
-				connection["b"] = string(p[0])
-				connection["c"] = string(p[1])
-				connection["d"] = string(p[2])
-				connection["f"] = string(p[3])
-			case 7:
+				numbers[4] = p
+
+				if c != "" && f != "" {
+					bd = strings.Replace(p, c, "", 1)
+					bd = strings.Replace(bd, f, "", 1)
+				}
+			}
+
+			// 5: 2, 3, 5
+			if len(p) == 5 {
+				if strings.Contains(p, string(numbers[1][0])) && strings.Contains(p, string(numbers[1][1])) {
+					digits[p] = 3
+					numbers[3] = p
+				}
+
+				// 2, 5
+				if c != "" {
+					if strings.Contains(p, c) && !strings.Contains(p, f) {
+						digits[p] = 2
+						numbers[2] = p
+					} else if strings.Contains(p, f) && !strings.Contains(p, c) {
+						digits[p] = 5
+						numbers[5] = p
+					}
+				}
+			}
+
+			// 6: 0, 6, 9
+			if len(p) == 6 {
+				if !strings.Contains(p, string(numbers[1][0])) || !strings.Contains(p, string(numbers[1][1])) {
+					digits[p] = 6
+					numbers[6] = p
+
+					if !strings.Contains(p, string(numbers[1][0])) {
+						c = string(numbers[1][0])
+						f = string(numbers[1][1])
+					} else {
+						c = string(numbers[1][1])
+						f = string(numbers[1][0])
+					}
+
+					// 0, 9
+				} else if bd != "" {
+					if strings.Contains(p, string(bd[0])) && strings.Contains(p, string(bd[1])) {
+						digits[p] = 9
+						numbers[9] = p
+					} else {
+						digits[p] = 0
+						numbers[0] = p
+					}
+				}
+			}
+
+			if len(p) == 7 {
 				digits[p] = 8
-				connection["a"] = string(p[0])
-				connection["b"] = string(p[1])
-				connection["c"] = string(p[2])
-				connection["d"] = string(p[3])
-				connection["e"] = string(p[4])
-				connection["f"] = string(p[5])
-				connection["g"] = string(p[6])
-			default:
-				missing = append(missing, p)
+				numbers[8] = p
 			}
 		}
 
-		// 6: 0, 6, 9
-		// 5: 2, 3, 5
-		for _, m := range missing {
-			if len(m) == 5 {
-				c := connection["c"]
-				f := connection["f"]
-				// 2 - c:1, f:0
-				if strings.Contains(m, c) && !strings.Contains(m, f) {
-					digits[m] = 2
-				}
-
-				// 3 - c:1, f:1
-				if strings.Contains(m, c) && strings.Contains(m, f) {
-					digits[m] = 3
-				}
-
-				// 5 - c:0, f:1
-				if !strings.Contains(m, c) && strings.Contains(m, f) {
-					digits[m] = 5
-				}
-			}
-
-			if len(m) == 6 {
-				c := connection["c"]
-				d := connection["d"]
-				e := connection["e"]
-
-				// 0 - e:1, d:0
-				if strings.Contains(m, e) && !strings.Contains(m, d) {
-					digits[m] = 0
-				}
-
-				// 6 - c:0
-				if !strings.Contains(m, c) {
-					digits[m] = 6
-				}
-
-				// 9 - e:0, d:1
-				if !strings.Contains(m, e) && strings.Contains(m, d) {
-					digits[m] = 9
-				}
-			}
-		}
-
-		// fmt.Println(missing)
-		// fmt.Println(connection)
-		fmt.Println(digits)
-		for _, i := range output {
+		n := 0
+		for x, i := range output {
 			if len(i) == 2 || len(i) == 3 || len(i) == 4 || len(i) == 7 {
 				part1++
 			}
 
-			fmt.Print(i, digits[i])
+			out := []rune(i)
+			sort.Slice(out, func(i int, j int) bool {
+				return out[i] < out[j]
+			})
+			o := string(out)
+
+			switch x {
+			case 0:
+				n += 1000 * digits[o]
+			case 1:
+				n += 100 * digits[o]
+			case 2:
+				n += 10 * digits[o]
+			case 3:
+				n += 1 * digits[o]
+			}
 		}
-		fmt.Println()
+
+		part2 += n
+		fmt.Println(n)
 	}
 
 	fmt.Println("Part 1: ", part1)
+	fmt.Println("Part 2: ", part2)
 }
