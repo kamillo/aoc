@@ -3,72 +3,36 @@ package main
 import (
 	"fmt"
 
+	"github.com/kamillo/aoc/2020/bootcode"
 	"github.com/kamillo/aoc/fileutil"
 )
 
-type code struct {
-	instruction string
-	arg         int
-}
-
-// BootCode - AoC 2020 BootCode
-type BootCode []code
-
 func main() {
 	lines := fileutil.GetLines("input.txt")
-	bootcode := make([]code, len(lines))
+	bc := make(bootcode.BootCode, len(lines))
 
 	for i, line := range lines {
 		instruction := ""
 		arg := 0
 
 		fmt.Sscanf(line, "%s %d", &instruction, &arg)
-		bootcode[i] = code{instruction: instruction, arg: arg}
+		bc[i] = bootcode.Code{Instruction: instruction, Arg: arg}
 	}
 
 	// Part1
-	fmt.Println(runBootCode(bootcode))
+	fmt.Println(bootcode.RunBootCode(bc))
 
-	for j, code := range bootcode {
-		if code.instruction == "nop" {
-			bootcode[j].instruction = "jmp"
-		} else if code.instruction == "jmp" {
-			bootcode[j].instruction = "nop"
+	for j, code := range bc {
+		if code.Instruction == "nop" {
+			bc[j].Instruction = "jmp"
+		} else if code.Instruction == "jmp" {
+			bc[j].Instruction = "nop"
 		}
 
-		if success, accumulator := runBootCode(bootcode); success {
+		if success, accumulator := bootcode.RunBootCode(bc); success {
 			fmt.Println("Part 2:", accumulator)
 			break
 		}
-		bootcode[j].instruction = code.instruction
+		bc[j].Instruction = code.Instruction
 	}
-}
-
-func runBootCode(bootcode BootCode) (success bool, accumulator int) {
-	instructionsDone := make(map[int]bool)
-
-	for index := 0; index < len(bootcode); {
-		instr := bootcode[index].instruction
-		arg := bootcode[index].arg
-
-		if instructionsDone[index] {
-			return false, accumulator
-		}
-		instructionsDone[index] = true
-
-		switch instr {
-		case "nop":
-			index++
-			break
-		case "acc":
-			accumulator += arg
-			index++
-			break
-		case "jmp":
-			index += arg
-			break
-		}
-	}
-
-	return true, accumulator
 }
