@@ -19,3 +19,11 @@ type Point3D struct {
 func NewPoint3D(x, y, z float64) Point3D {
 	return Point3D{x, y, z}
 }
+
+type PointD3D struct {
+	X, Y, Z int
+}
+
+func NewPointD3D(x, y, z int) PointD3D {
+	return PointD3D{x, y, z}
+}
