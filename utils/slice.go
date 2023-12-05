@@ -61,6 +61,14 @@ func Sum(array []interface{}) int {
 	return result
 }
 
+func SumInts(array []int) int {
+	result := 0
+	for _, v := range array {
+		result += v
+	}
+	return result
+}
+
 func Product(array []interface{}) int {
 	result := 0
 	for _, v := range array {
