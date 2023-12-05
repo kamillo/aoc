@@ -135,3 +135,50 @@ func AnyToString(in []interface{}) []string {
 
 	return result
 }
+
+func SliceRotateString(image []string) []string {
+	size := len(image)
+	newImage := make([][]byte, size)
+
+	for y := 0; y < size; y++ {
+		newImage[y] = make([]byte, size)
+	}
+
+	for y := range image {
+		for x := range image[y] {
+			newImage[size-x-1][y] = image[y][x]
+		}
+	}
+
+	ret := []string{}
+	for y := range newImage {
+		ret = append(ret, string(newImage[y]))
+	}
+	return ret
+}
+
+func SliceFlipHString(image []string) []string {
+	size := len(image)
+	newImage := make([]string, size)
+
+	for y := range image {
+		line := make([]byte, size)
+		for x := range image[y] {
+			line[size-x-1] = image[y][x]
+		}
+		newImage[y] = string(line)
+	}
+
+	return newImage
+}
+
+func SliceFlipVString(image []string) []string {
+	newImage := make([]string, len(image))
+	copy(newImage, image)
+
+	for i, j := 0, len(newImage)-1; i < j; i, j = i+1, j-1 {
+		newImage[i], newImage[j] = newImage[j], newImage[i]
+	}
+
+	return newImage
+}
