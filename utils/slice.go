@@ -50,3 +50,13 @@ func SliceToString(a []int, sep string) string {
 	}
 	return strings.Join(b, sep)
 }
+
+func Sum(array []interface{}) int {
+	result := 0
+	for _, v := range array {
+		if i, err := strconv.Atoi(v.(string)); err == nil {
+			result += i
+		}
+	}
+	return result
+}

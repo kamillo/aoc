@@ -22,3 +22,21 @@ func HeapPermutation(a []interface{}) [][]interface{} {
 	generate(a, len(a))
 	return permutations
 }
+
+func Combinations(set []interface{}) (subsets [][]interface{}) {
+	length := uint(len(set))
+
+	for subsetBits := 1; subsetBits < (1 << length); subsetBits++ {
+		var subset []interface{}
+
+		for object := uint(0); object < length; object++ {
+			// checks if object is contained in subset
+			// by checking if bit 'object' is set in subsetBits
+			if (subsetBits>>object)&1 == 1 {
+				subset = append(subset, set[object])
+			}
+		}
+		subsets = append(subsets, subset)
+	}
+	return subsets
+}
