@@ -17,11 +17,11 @@ const (
 )
 
 var Directions = []Hex{
-	NewHex(1, 1),
-	NewHex(2, 0),
+	NewHex(0, 1),
+	NewHex(1, 0),
 	NewHex(1, -1),
-	NewHex(-1, -1),
-	NewHex(-2, 0),
+	NewHex(0, -1),
+	NewHex(-1, 0),
 	NewHex(-1, 1),
 }
 
@@ -51,7 +51,7 @@ func Subtract(a, b Hex) Hex {
 }
 
 func Length(hex Hex) int {
-	return int((math.Abs(float64(hex.q)) + math.Abs(float64(hex.r)) + math.Abs(float64(hex.s))) / 2.)
+	return int((math.Abs(float64(hex.q)) + math.Abs(float64(hex.r)) + math.Abs(float64(hex.q)+float64(hex.r))) / 2.)
 }
 
 func Distance(a, b Hex) int {
