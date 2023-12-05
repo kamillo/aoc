@@ -47,6 +47,7 @@ type State int
 
 const (
 	Output State = 0
+	Input  State = 1
 	Exit   State = 2
 )
 
@@ -105,6 +106,9 @@ func (c *IntCode) Get() (out int, state State) {
 			c.Codes[param3] = param1 * param2
 			c.ptr += 4
 		case 3:
+			if len(c.input) == 0 {
+				return ret, Input
+			}
 			c.Codes[pparam1] = c.input[0]
 			c.input = append(c.input[:0], c.input[1:]...)
 			c.ptr += 2
