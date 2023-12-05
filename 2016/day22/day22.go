@@ -14,20 +14,37 @@ type Node struct {
 	avail int
 }
 
+type Grid [][]Node
+
 func main() {
 	lines := utils.GetLines("input.txt")
 
-	nodes := [100][100]Node{}
+	nodes := make(Grid, 40)
+	for n := range nodes {
+		nodes[n] = make([]Node, 40)
+	}
+
 	nodesMap := []Node{}
+	maxX := 0
+	maxY := 0
 	for _, line := range lines {
 		x, y, size, used, avail, perc := 0, 0, 0, 0, 0, 0
 
 		if _, err := fmt.Sscanf(line, "/dev/grid/node-x%d-y%d %dT %dT %dT %d", &x, &y, &size, &used, &avail, &perc); err == nil {
 			n := Node{x, y, size, used, avail}
-			nodes[x][y] = n
+			nodes[y][x] = n
 			nodesMap = append(nodesMap, n)
+
+			if x > maxX {
+				maxX = x
+			}
+			if y > maxY {
+				maxY = y
+			}
 		}
 	}
+
+	fmt.Println(maxX, maxY)
 
 	sum := 0
 	for _, n1 := range nodesMap {
@@ -39,9 +56,17 @@ func main() {
 	}
 
 	fmt.Println(sum)
-	// for y := 0; y < len(nodes); y++ {
-	// 	for x := 0; x < len(nodes); x++ {
-	// 		if ()
-	// 	}
-	// }
+
+	nodes.print()
+
+	// 26 + 1 + 33 * 5
+}
+
+func (grid *Grid) print() {
+	for y := range *grid {
+		for x := range *grid {
+			fmt.Printf("%3d/%3d,", (*grid)[y][x].used, (*grid)[y][x].size)
+		}
+		fmt.Println()
+	}
 }
