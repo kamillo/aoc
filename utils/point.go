@@ -27,3 +27,7 @@ type PointD3D struct {
 func NewPointD3D(x, y, z int) PointD3D {
 	return PointD3D{x, y, z}
 }
+
+func (p PointD3D) Add(other PointD3D) PointD3D {
+	return PointD3D{p.X + other.X, p.Y + other.Y, p.Z + other.Z}
+}

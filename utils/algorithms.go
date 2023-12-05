@@ -64,3 +64,11 @@ func CombinationsWithRepetitions(n int, lst []string) [][]string {
 	}
 	return r
 }
+
+func ModWrap(d, m int) int {
+	res := d % m
+	if (res < 0 && m > 0) || (res > 0 && m < 0) {
+		return res + m
+	}
+	return res
+}
