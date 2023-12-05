@@ -35,3 +35,37 @@ func SortMapStringInt(m map[string]int, desc bool) PairList {
 
 	return pairs
 }
+
+type PairIntInt struct {
+	Key   int
+	Value int
+}
+
+type PairIntIntList []PairIntInt
+
+func (p PairIntIntList) Len() int      { return len(p) }
+func (p PairIntIntList) Swap(i, j int) { p[i], p[j] = p[j], p[i] }
+func (p PairIntIntList) Less(i, j int) bool {
+	if p[i].Value == p[j].Value {
+		return p[i].Key > p[j].Key
+	}
+	return p[i].Value < p[j].Value
+}
+
+func SortMapIntInt(m map[int]int, desc bool) PairIntIntList {
+
+	pairs := make(PairIntIntList, len(m))
+	i := 0
+	for k, v := range m {
+		pairs[i] = PairIntInt{k, v}
+		i++
+	}
+
+	if desc {
+		sort.Sort(sort.Reverse(pairs))
+	} else {
+		sort.Sort(pairs)
+	}
+
+	return pairs
+}
