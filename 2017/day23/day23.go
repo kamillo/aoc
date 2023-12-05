@@ -13,12 +13,62 @@ type Pair struct{ Id, Result int }
 func main() {
 	lines := utils.GetLines("input.txt")
 	fmt.Println("Part 1:", debug(lines))
+
+	// Reverse engineered asm, fast enought
+	b := 106700 // 67
+	c := 123700 //67
+
+	g := 1
+	h := 0
+	for g != 0 {
+		f := 1
+		d := 2
+		for g != 0 {
+			// e := 2
+
+			g = 0
+			if b%d == 0 {
+				f = 0
+			}
+
+			// for g != 0 {
+			// 	g = d
+			// 	g *= e
+			// 	g -= b
+
+			// 	if g == 0 {
+			// 		f = 0
+			// 	}
+			// 	e++
+			// 	g = e
+			// 	g -= b
+			// }
+
+			d++
+			g = d
+			g -= b
+		}
+
+		if f == 0 {
+			h++
+		}
+
+		g = b
+		g -= c
+		if g == 0 {
+			break
+			//return h
+		}
+		b += 17
+	}
+
+	fmt.Println("Part 2:", h)
 }
 
 func debug(lines []string) int {
 	registers := map[string]int{}
 	mulCnt := 0
-	registers["a"] = 1
+	registers["a"] = 0
 
 	for i := 0; i < len(lines); i++ {
 		line := lines[i]
@@ -54,7 +104,7 @@ func debug(lines []string) int {
 			}
 		}
 
-		fmt.Println(registers)
+		//fmt.Println(registers)
 	}
 
 	return mulCnt
