@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"os"
 	"strconv"
 	"strings"
 
@@ -28,17 +27,17 @@ func runProgram(inCodes []int, input []int, ptrOptional ...int) (int, []int, int
 	ret := 0
 
 	for {
-		param1, param2, param3 := 0, 0, 0
+		pparam1, param2, param3 := 0, 0, 0
 
 		if ptr+1 < len(codes) {
-			param1 = codes[ptr+1]
+			pparam1 = ptr + 1
 			if ((codes[ptr] / 100) % 10) == 0 {
 				if codes[ptr+1] < len(codes) {
-					param1 = codes[codes[ptr+1]]
+					pparam1 = codes[ptr+1]
 				}
 			} else if ((codes[ptr] / 100) % 10) == 2 {
 				if relativeBase+codes[ptr+1] < len(codes) {
-					param1 = codes[relativeBase+codes[ptr+1]]
+					pparam1 = relativeBase + codes[ptr+1]
 				}
 			}
 		}
@@ -66,7 +65,7 @@ func runProgram(inCodes []int, input []int, ptrOptional ...int) (int, []int, int
 				param3 = relativeBase + codes[ptr+3]
 			}
 		}
-
+		param1 := codes[pparam1]
 		switch codes[ptr] % 100 {
 		case 1:
 			codes[param3] = param1 + param2
@@ -75,7 +74,7 @@ func runProgram(inCodes []int, input []int, ptrOptional ...int) (int, []int, int
 			codes[param3] = param1 * param2
 			ptr += 4
 		case 3:
-			codes[param3] = input[inputPtr]
+			codes[pparam1] = input[inputPtr]
 			inputPtr++
 			ptr += 2
 		case 4:
@@ -115,7 +114,7 @@ func runProgram(inCodes []int, input []int, ptrOptional ...int) (int, []int, int
 }
 
 func main() {
-	lines := fileutil.GetLines(os.Args[1])
+	lines := fileutil.GetLines("input.txt")
 	//lines = []string{"109,1,204,-1,1001,100,1,100,1008,100,16,101,1006,101,0,99"}
 	//lines = []string{"1102,34915192,34915192,7,4,7,99,0"}
 	//lines = []string{"104,1125899906842624,99"}
