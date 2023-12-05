@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"image"
+	"strconv"
 	"strings"
 
 	"github.com/kamillo/aoc/utils"
@@ -9,6 +11,7 @@ import (
 
 const (
 	boardWidth = 7
+	iterations = 10 * 2022
 )
 
 var shapes = [][][]int{
@@ -66,7 +69,7 @@ func (t *tetromino) lock(board *Board) {
 	// fmt.Println()
 }
 
-type Board [5 * 2022][7]int
+type Board [5 * iterations][7]int
 
 type game struct {
 	board            Board
@@ -137,9 +140,23 @@ func (t *tetromino) moveDown(g *game) bool {
 }
 
 type gameState struct {
-	lastLine string
-	shape    int
-	jet      int
+	line  string
+	shape int
+	jet   int
+}
+
+func (g *game) getGameState(s, j int) gameState {
+	line := [7]string{"x", "x", "x", "x", "x", "x", "x"}
+	for x := 0; x < len(g.board[0]); x++ {
+		for y := highest; y < len(g.board); y++ {
+			if g.board[y][x] == 1 {
+				line[x] = strconv.Itoa(y - highest)
+				break
+			}
+		}
+	}
+
+	return gameState{strings.Join(line[:], ""), s, j}
 }
 
 func main() {
@@ -150,11 +167,24 @@ func main() {
 	highest = len(g.board)
 	g.currentTetromino = generateTetromino(0)
 	j := 0
-	//state := map[gameState]bool{}
+	state := map[gameState]image.Point{}
 
-	for i := 0; i < 2022; i += 1 {
+	for i := 0; i < iterations; i += 1 {
 		for ; ; j = (j + 1) % len(jets) {
 			jet := jets[j]
+
+			currentState := g.getGameState(i%len(shapes), j)
+			prev, ok := state[currentState]
+			left := 1000000000000 - i
+			cycleLocked := i - prev.X
+			if ok && left%cycleLocked == 0 {
+				currentHeight := len(g.board) - highest
+				prevHeight := prev.Y
+				cycleHeight := currentHeight - prevHeight
+				fmt.Println("Part 2: ", left/cycleLocked*cycleHeight+currentHeight)
+				return
+			}
+			state[currentState] = image.Pt(i, len(g.board)-highest)
 
 			switch jet {
 			case "<":
@@ -168,9 +198,13 @@ func main() {
 				break
 			}
 		}
+
+		if i == 2021 {
+			fmt.Println("Part 1:", len(g.board)-highest)
+		}
 	}
-	for i := highest; i < len(g.board); i++ {
-		fmt.Println(strings.ReplaceAll(strings.ReplaceAll(utils.SliceToString(g.board[i][:], ""), "1", "#"), "0", "."))
-	}
-	fmt.Println(len(g.board) - highest)
+	// for i := highest; i < len(g.board); i++ {
+	// 	fmt.Println(strings.ReplaceAll(strings.ReplaceAll(utils.SliceToString(g.board[i][:], ""), "1", "#"), "0", "."))
+	// }
+	// fmt.Println(len(g.board) - highest)
 }
