@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/kamillo/aoc/fileutil"
+	"github.com/kamillo/aoc/utils"
 	"math"
 	"strings"
 )
@@ -96,7 +96,7 @@ func bugsLife(layers []Grid, tmpLayers []Grid, index int) {
 }
 
 func main() {
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 
 	grid := make(Grid, gridSize)
 	for i := range grid {

@@ -2,16 +2,14 @@ package main
 
 import (
 	"fmt"
+	"github.com/kamillo/aoc/utils"
 	"math"
 	"strconv"
 	"strings"
-
-	"github.com/kamillo/aoc/fileutil"
-	"github.com/kamillo/aoc/geometry"
 )
 
 func main() {
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 	// lines := []string{"R5, L5, R5, R3"}
 	// lines := []string{"R8, R4, R4, R8"}
 	x, y, dx, dy := 0.0, 0.0, 0.0, 1.0
@@ -19,7 +17,7 @@ func main() {
 
 	for _, line := range lines {
 		splited := strings.Split(line, ", ")
-		paths := make([]geometry.Line, len(splited))
+		paths := make([]utils.Line, len(splited))
 		checkIntersection := true
 
 		for index, cord := range splited {
@@ -59,10 +57,10 @@ func main() {
 				}
 			}
 
-			newPath := geometry.Line{x, y, x + dx*val, y + dy*val}
+			newPath := utils.Line{x, y, x + dx*val, y + dy*val}
 			if index > 1 && checkIntersection {
 				for _, path := range paths[:index-1] {
-					x, y, ok := geometry.LineIntersection(path, newPath)
+					x, y, ok := utils.LineIntersection(path, newPath)
 					if ok {
 						fmt.Println("Part 2: ", math.Abs(x)+math.Abs(y))
 						checkIntersection = false

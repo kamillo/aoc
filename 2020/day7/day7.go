@@ -2,15 +2,14 @@ package main
 
 import (
 	"fmt"
+	"github.com/kamillo/aoc/utils"
 	"strings"
-
-	"github.com/kamillo/aoc/fileutil"
 )
 
 type bag map[string]int
 
 func main() {
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 	part1 := make(map[string]bool)
 
 	bagsMap := make(map[string]bag)

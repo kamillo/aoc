@@ -2,10 +2,9 @@ package main
 
 import (
 	"fmt"
+	"github.com/kamillo/aoc/utils"
 	"strconv"
 	"strings"
-
-	"github.com/kamillo/aoc/fileutil"
 )
 
 // ABCDE
@@ -115,7 +114,7 @@ func runProgram(inCodes []int, input []int, ptrOptional ...int) (int, []int, int
 }
 
 func main() {
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 	splitted := strings.Split(lines[0], ",")
 	ints := make([]int, len(splitted)*100)
 	for i := 0; i < len(splitted); i++ {

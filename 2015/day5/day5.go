@@ -2,13 +2,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/kamillo/aoc/fileutil"
+	"github.com/kamillo/aoc/utils"
 	"strings"
 )
 
 func main() {
 	nice := 0
-	for _, line := range fileutil.GetLines("input.txt") {
+	for _, line := range utils.GetLines("input.txt") {
 		if countVowels(line) >= 3 && countDoubledRune(line) >= 1 && !containsForbidden(line) {
 			nice++
 		}
@@ -16,7 +16,7 @@ func main() {
 	fmt.Println("Part 1: ", nice)
 
 	nice = 0
-	for _, line := range fileutil.GetLines("input.txt") {
+	for _, line := range utils.GetLines("input.txt") {
 		if containsPair(line) && containsRepeatingWithSeparator(line) {
 			nice++
 			fmt.Println(line)

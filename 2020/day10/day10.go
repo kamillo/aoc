@@ -2,13 +2,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/kamillo/aoc/fileutil"
+	"github.com/kamillo/aoc/utils"
 	"sort"
 	"strconv"
 )
 
 func main() {
-	lines := fileutil.GetLines("test.txt")
+	lines := utils.GetLines("test.txt")
 
 	differences := make(map[int]int)
 	joltages := make([]int, len(lines))

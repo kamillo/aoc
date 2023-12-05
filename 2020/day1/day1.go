@@ -2,13 +2,12 @@ package main
 
 import (
 	"fmt"
+	"github.com/kamillo/aoc/utils"
 	"strconv"
-
-	"github.com/kamillo/aoc/fileutil"
 )
 
 func main() {
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 	first, second := 0.0, 0.0
 
 	numbers := make([]float64, len(lines))

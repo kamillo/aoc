@@ -2,13 +2,13 @@ package main
 
 import (
 	"fmt"
+	"github.com/kamillo/aoc/utils"
 
 	"github.com/kamillo/aoc/2020/bootcode"
-	"github.com/kamillo/aoc/fileutil"
 )
 
 func main() {
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 	bc := make(bootcode.BootCode, len(lines))
 
 	for i, line := range lines {
@@ -29,7 +29,7 @@ func main() {
 			bc[j].Instruction = "nop"
 		}
 
-		if success, accumulator := bootcode.RunBootCode(bc); success {
+		if success, accumulator := bootcode.RunBootCode(bootcode); success {
 			fmt.Println("Part 2:", accumulator)
 			break
 		}

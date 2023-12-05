@@ -2,9 +2,8 @@ package main
 
 import (
 	"fmt"
+	"github.com/kamillo/aoc/utils"
 	"strings"
-
-	"github.com/kamillo/aoc/fileutil"
 )
 
 type vector3d struct {
@@ -31,7 +30,7 @@ type portal struct {
 }
 
 func getGrid() (grid map[vector3d]bool, portals map[vector3d]portal, start, end vector3d) {
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 
 	outer, inner := square{tl: vector3d{2, 2, 0}, br: vector3d{len(lines[0]) - 3, len(lines) - 3, 0}}, square{}
 	for y := outer.tl.y; ; y++ {

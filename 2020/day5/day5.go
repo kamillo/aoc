@@ -2,16 +2,14 @@ package main
 
 import (
 	"fmt"
+	"github.com/kamillo/aoc/utils"
 	"sort"
 	"strconv"
 	"strings"
-
-	"github.com/kamillo/aoc/fileutil"
-	"github.com/kamillo/aoc/mathutils"
 )
 
 func main() {
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 
 	toBinary := func(r rune) rune {
 		switch r {
@@ -33,7 +31,7 @@ func main() {
 		ids[i] = int(row)*8 + int(col)
 	}
 
-	fmt.Println("Part 1: ", mathutils.MaxInArray(ids))
+	fmt.Println("Part 1: ", utils.MaxInArray(ids))
 
 	sort.Ints(ids)
 	for i, value := range ids {

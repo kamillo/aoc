@@ -2,13 +2,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/kamillo/aoc/fileutil"
+	"github.com/kamillo/aoc/utils"
 	"sort"
 	"strings"
 )
 
 func main() {
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 
 	allergensMap := make(map[string]map[string]bool)
 	ingredientsTimes := make(map[string]int)

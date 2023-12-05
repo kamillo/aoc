@@ -1,4 +1,4 @@
-package mathutils
+package utils
 
 // Min - Find minimal value from argumet variables
 func Min(vn ...int) (ret int) {

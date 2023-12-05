@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/kamillo/aoc/fileutil"
+	"github.com/kamillo/aoc/utils"
 )
 
 const m = 119315717514047
@@ -30,7 +30,7 @@ func mul(a int64, b int64) int64 { return expBySqrt(add, 0, a, b) } // *  (mod m
 func pow(a int64, b int64) int64 { return expBySqrt(mul, 1, a, b) } // ** (mod m)
 
 func main() {
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 
 	deck := make([]int, 10007)
 	for i := range deck {

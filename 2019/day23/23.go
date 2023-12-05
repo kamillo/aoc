@@ -2,13 +2,13 @@ package main
 
 import (
 	"fmt"
+	"github.com/kamillo/aoc/utils"
 
 	"github.com/kamillo/aoc/2019/intcode"
-	"github.com/kamillo/aoc/fileutil"
 )
 
 func main() {
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 	ints := intcode.ParseInput(lines[0])
 	computers := [50]intcode.IntCode{}
 	for i := range computers {
@@ -18,11 +18,11 @@ func main() {
 	}
 
 	NAT := [2]int{}
-	
+
 	for {
 		idles := 0
 		for i, _ := range computers {
-			if (len(computers[i].GetInput()) == 0) {
+			if len(computers[i].GetInput()) == 0 {
 				idles++
 				computers[i].Put([]int{-1})
 			}

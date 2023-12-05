@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/kamillo/aoc/fileutil"
+	"github.com/kamillo/aoc/utils"
 	"strconv"
 	"strings"
 )
@@ -106,7 +106,7 @@ func eval(equation string, precedence string) int {
 }
 
 func main() {
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 	//lines = fileutil.GetLines("test.txt")
 
 	part1 := 0

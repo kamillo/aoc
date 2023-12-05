@@ -2,11 +2,10 @@ package main
 
 import (
 	"fmt"
+	"github.com/kamillo/aoc/utils"
 	"math"
 	"sort"
 	"strings"
-
-	"github.com/kamillo/aoc/fileutil"
 )
 
 func check(p1 Point, p2 Point, p3 Point) bool {
@@ -43,7 +42,7 @@ type Point struct {
 }
 
 func main() {
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 	//lines = []string{
 	//	"......#.#." ,
 	//	"#..#.#....",

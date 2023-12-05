@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/kamillo/aoc/fileutil"
+	"github.com/kamillo/aoc/utils"
 	"regexp"
 	"strings"
 )
@@ -10,7 +10,7 @@ import (
 func main() {
 	rules := map[string]string{}
 	cases := []string{}
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 	endRules := false
 
 	for _, line := range lines {

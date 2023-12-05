@@ -2,13 +2,12 @@ package main
 
 import (
 	"fmt"
-	"github.com/kamillo/aoc/fileutil"
-	"github.com/kamillo/aoc/mathutils"
+	"github.com/kamillo/aoc/utils"
 	"strconv"
 )
 
 func main() {
-	lines := fileutil.GetLines("input.txt")
+	lines := utils.GetLines("input.txt")
 
 	preambleLength := 25
 	numbers := make([]int, len(lines))
@@ -47,7 +46,7 @@ func main() {
 				sum += num
 			}
 			if sum == invalid {
-				fmt.Println("Part 2: ", mathutils.MaxInArray(subrange)+mathutils.MinInArray(subrange))
+				fmt.Println("Part 2: ", utils.MaxInArray(subrange)+utils.MinInArray(subrange))
 				return
 			}
 		}
