@@ -61,6 +61,20 @@ func Sum(array []interface{}) int {
 	return result
 }
 
+func Product(array []interface{}) int {
+	result := 0
+	for _, v := range array {
+		if i, err := strconv.Atoi(v.(string)); err == nil {
+			if result != 0 {
+				result *= i
+			} else {
+				result = i
+			}
+		}
+	}
+	return result
+}
+
 func JoinInts(elems []int, sep string) string {
 	switch len(elems) {
 	case 0:
@@ -81,4 +95,24 @@ func JoinInts(elems []int, sep string) string {
 		b.WriteString(strconv.Itoa(s))
 	}
 	return b.String()
+}
+
+func AnyToInt(in []interface{}) []int {
+	result := make([]int, len(in))
+	for x, v := range in {
+		if i, err := strconv.Atoi(v.(string)); err == nil {
+			result[x] = i
+		}
+	}
+
+	return result
+}
+
+func AnyToString(in []interface{}) []string {
+	result := make([]string, len(in))
+	for x, v := range in {
+		result[x] = v.(string)
+	}
+
+	return result
 }

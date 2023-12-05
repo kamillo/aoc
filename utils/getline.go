@@ -33,7 +33,7 @@ func GetLines(fileName string) (lines []string) {
 
 func GetLinesAsInts(fileName string) (lines []int) {
 	for _, line := range GetLines(fileName) {
-		if i, err := strconv.Atoi(line); err != nil {
+		if i, err := strconv.Atoi(line); err == nil {
 			lines = append(lines, i)
 		}
 	}
