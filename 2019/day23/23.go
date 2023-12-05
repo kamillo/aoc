@@ -17,9 +17,13 @@ func main() {
 		computers[i].Put([]int{-1})
 	}
 
+	NAT := [2]int{}
+	
 	for {
+		idles := 0
 		for i, _ := range computers {
 			if (len(computers[i].GetInput()) == 0) {
+				idles++
 				computers[i].Put([]int{-1})
 			}
 			address, state := computers[i].Get()
@@ -27,12 +31,19 @@ func main() {
 				X, _ := computers[i].Get()
 				Y, _ := computers[i].Get()
 
-				fmt.Println(i, "->", address, X, Y)
+				// fmt.Println(i, "->", address, X, Y)
 				if address == 255 {
-					return 
+					fmt.Println("Setting NAT: ", Y)
+					NAT[0] = X
+					NAT[1] = Y
+				} else {
+					computers[address].Put([]int{X, Y})
 				}
-				computers[address].Put([]int{X, Y})
 			}
+		}
+		if idles == len(computers) {
+			fmt.Println("Sending to 0: ", NAT[0], NAT[1])
+			computers[0].Put([]int{NAT[0], NAT[1]})
 		}
 	}
 }
