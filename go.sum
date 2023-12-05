@@ -1,0 +1,6 @@
+github.com/albertorestifo/dijkstra v0.0.0-20160910063646-aba76f725f72 h1:uGeGZl8PxSq8VZGG4QK5njJTFA4/G/x5CYORvQVXtAE=
+github.com/albertorestifo/dijkstra v0.0.0-20160910063646-aba76f725f72/go.mod h1:o+JdB7VetTHjLhU0N57x18B9voDBQe0paApdEAEoEfw=
+github.com/fzipp/astar v0.1.0 h1:1iedr+n3QQ/uVMsopCmQQnWisuLBACveJyhOyRD7ugE=
+github.com/fzipp/astar v0.1.0/go.mod h1:q/cx6dQzSBeiYmq2s5R+flb5N2H9pM0PfpxPyJjFEyA=
+github.com/kamillo/aoc/utils v0.0.0-20211215182435-eee62563d16a h1:gGhb/0BGXJaC+Mu2rvrrARf5nF/5FNjfc8a3CA7Av/4=
+github.com/kamillo/aoc/utils v0.0.0-20211215182435-eee62563d16a/go.mod h1:P96CanhQg39M1qjKDlC6qoRe3DMkfcSYOpBPty35hxM=
