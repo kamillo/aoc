@@ -48,3 +48,11 @@ func GetLinesAsInterface(fileName string) (lines []interface{}) {
 
 	return
 }
+
+func GetLinesAs2dArray(fileName string) (result [][]byte) {
+	for _, line := range GetLines(fileName) {
+		result = append(result, []byte(line))
+	}
+
+	return
+}
