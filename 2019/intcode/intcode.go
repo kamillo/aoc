@@ -33,7 +33,7 @@ func (c *IntCode) Put(in []int) {
 
 func (c IntCode) Run(debug bool) {
 	for {
-		if res, state := c.Get(); state != exit {
+		if res, state := c.Get(); state != Exit {
 			if debug {
 				fmt.Println(res)
 			}
@@ -46,8 +46,8 @@ func (c IntCode) Run(debug bool) {
 type State int
 
 const (
-	output State = 0
-	exit   State = 2
+	Output State = 0
+	Exit   State = 2
 )
 
 func (c *IntCode) Get() (out int, state State) {
@@ -57,7 +57,7 @@ func (c *IntCode) Get() (out int, state State) {
 		pparam1, param2, param3 := 0, 0, 0
 
 		if c.Codes[c.ptr]%100 == 99 {
-			return ret, exit
+			return ret, Exit
 		}
 
 		if c.ptr+1 < len(c.Codes) {
@@ -112,7 +112,7 @@ func (c *IntCode) Get() (out int, state State) {
 			//fmt.Println("out: ", param1)
 			ret = param1
 			c.ptr += 2
-			return param1, output
+			return param1, Output
 		case 5: // jump-if-true: if the first parameter is non-zero, it sets the instruction pointer to the value from the second parameter. Otherwise, it does nothing.
 			c.ptr += 3
 			if param1 != 0 {
@@ -139,7 +139,7 @@ func (c *IntCode) Get() (out int, state State) {
 			c.base += param1
 			c.ptr += 2
 		case 99: // halt
-			return ret, exit
+			return ret, Exit
 		}
 	}
 }
