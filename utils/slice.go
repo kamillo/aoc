@@ -116,6 +116,17 @@ func AnyToInt(in []interface{}) []int {
 	return result
 }
 
+func StringsToInts(in []string) []int {
+	result := make([]int, len(in))
+	for x, v := range in {
+		if i, err := strconv.Atoi(v); err == nil {
+			result[x] = i
+		}
+	}
+
+	return result
+}
+
 func AnyToString(in []interface{}) []string {
 	result := make([]string, len(in))
 	for x, v := range in {

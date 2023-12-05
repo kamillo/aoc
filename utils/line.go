@@ -10,6 +10,14 @@ type Line struct {
 	EndY   float64
 }
 
+// DiscreteLine - representation of line in 2D discrete plane
+type DiscreteLine struct {
+	StartX int
+	StartY int
+	EndX   int
+	EndY   int
+}
+
 // LineIntersection - check if two lines intersects and where
 func LineIntersection(line1 Line, line2 Line) (x float64, y float64, ok bool) {
 	s1X := line1.EndX - line1.StartX
