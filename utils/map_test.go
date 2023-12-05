@@ -42,7 +42,7 @@ func TestSortMapStringInt(t *testing.T) {
 		PairStringInt{"Kenya", 51393010},
 		PairStringInt{"Brazil", 209469333},
 	}
-	got := SortMapStringInt(m)
+	got := SortMapStringInt(m, false)
 
 	for i := range got {
 		if got[i] != want[i] {
