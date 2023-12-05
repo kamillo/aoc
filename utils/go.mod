@@ -1,3 +1,3 @@
 module github.com/kamillo/aoc/utils
 
-go 1.17
+go 1.18
