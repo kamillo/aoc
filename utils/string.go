@@ -32,3 +32,16 @@ func Reverse(s string) (rs string) {
 	}
 	return
 }
+
+func IntArrToStr(arr []int) (ret string) {
+	for _, v := range arr {
+		ret += strconv.Itoa(v)
+	}
+
+	return
+}
+
+func JustAtoi(s string) int {
+	ret, _ := strconv.Atoi(s)
+	return ret
+}
