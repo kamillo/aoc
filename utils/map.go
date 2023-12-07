@@ -69,3 +69,13 @@ func SortMapIntInt(m map[int]int, desc bool) PairIntIntList {
 
 	return pairs
 }
+
+func MakeIndexed(text string) map[rune]int {
+	ret := make(map[rune]int, len(text))
+
+	for i, r := range text {
+		ret[r] = i
+	}
+
+	return ret
+}
