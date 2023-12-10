@@ -12,6 +12,10 @@ func (p1 Point2D) Add(p2 Point2D) Point2D {
 	return Point2D{p1.X + p2.X, p1.Y + p2.Y}
 }
 
+func (p1 Point2D) Eq(p2 Point2D) bool {
+	return p1.X == p2.X && p1.Y == p2.Y
+}
+
 type Point3D struct {
 	X, Y, Z float64
 }
