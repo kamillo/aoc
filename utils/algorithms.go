@@ -72,3 +72,10 @@ func ModWrap(d, m int) int {
 	}
 	return res
 }
+
+func Abs(x int) int {
+	if x < 0 {
+		return -x
+	}
+	return x
+}

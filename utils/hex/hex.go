@@ -2,7 +2,8 @@ package hex
 
 import (
 	"fmt"
-	"math"
+
+	"github.com/kamillo/aoc/utils"
 )
 
 type Direction int
@@ -51,7 +52,7 @@ func Subtract(a, b Hex) Hex {
 }
 
 func Length(hex Hex) int {
-	return int((math.Abs(float64(hex.q)) + math.Abs(float64(hex.r)) + math.Abs(float64(hex.q)+float64(hex.r))) / 2.)
+	return ((utils.Abs(hex.q) + utils.Abs(hex.r) + utils.Abs(hex.q+hex.r)) / 2.)
 }
 
 func Distance(a, b Hex) int {
