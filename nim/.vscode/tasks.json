@@ -1,0 +1,13 @@
+{
+    "taskName": "Run module.nim",
+    "command": "nim",
+    "args": ["c", "-p:${workspaceRoot}", "-o:bin/${fileBasenameNoExtension}", "-r", "${file}"],
+    "options": {
+       "cwd": "${fileDirname}"
+    },
+    "type": "shell",
+    "group": {
+       "kind": "build",
+       "isDefault": true
+    }
+ }
