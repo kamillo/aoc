@@ -127,3 +127,42 @@ func FindLongestPath[Node comparable](g Graph[Node], start, dest Node, d, h Cost
 	// No path found
 	return paths
 }
+
+func FindAllPaths[Node comparable](g Graph[Node], start, dest Node, d, h CostFunc[Node]) []Path[Node] {
+	closed := make(map[Node]bool)
+	paths := []Path[Node]{}
+
+	pq := &priorityQueue{}
+
+	heap.Init(pq)
+	heap.Push(pq, &item{value: newPath(start)})
+
+	for pq.Len() > 0 {
+		// p := heap.Pop(pq).(*item[Path[Node]]).value
+		p := heap.Pop(pq).(*item).value.(Path[Node])
+		n := p.last()
+
+		if closed[n] {
+			continue
+		}
+		if n == dest {
+			paths = append(paths, p)
+			continue
+			// Path found
+			// return p.path, p.context
+		}
+		closed[n] = true
+
+		for _, nb := range g.Neighbours(n, "") {
+			newPath := p.cont(nb)
+
+			heap.Push(pq, &item{
+				value:    newPath,
+				priority: (newPath.Cost(d) + h(nb, dest)),
+			})
+		}
+	}
+
+	// No path found
+	return paths
+}
