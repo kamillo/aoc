@@ -1,6 +1,8 @@
 package utils
 
-import "image"
+import (
+	"image"
+)
 
 func CountAdj(x int, y int, grid [][]byte, char byte) (adj int) {
 	if x+1 < len(grid) && grid[x+1][y] == char {
@@ -61,4 +63,21 @@ func GetAdj(x int, y int, grid [][]byte, char byte, diagOnly bool) []image.Point
 	}
 
 	return adj
+}
+
+func GetPerpendicularAdj(x int, y int, grid [][]byte, condition func(char byte) bool) []image.Point {
+	adj := []image.Point{}
+  if y+1 < len(grid) && condition(grid[y+1][x]) {
+    adj = append(adj, image.Pt(x, y + 1))
+  }
+  if x+1 < len(grid[x]) && condition(grid[y][x+1]) {
+    adj = append(adj, image.Pt(x + 1, y))
+  }
+  if y > 0 && condition(grid[y-1][x]) {
+    adj = append(adj, image.Pt(x, y - 1))
+  }
+  if x > 0 && condition(grid[y][x-1]) {
+    adj = append(adj, image.Pt(x - 1, y))
+  }
+  return adj
 }

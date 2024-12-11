@@ -183,6 +183,6 @@ func SliceFlipVString(image []string) []string {
 	return newImage
 }
 
-func DeleteAtIndex(slice []int, index int) []int {
+func DeleteAtIndex[T any](slice []T, index int) []T {
   return append(slice[:index], slice[index+1:]...)
 }

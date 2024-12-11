@@ -65,6 +65,29 @@ func CombinationsWithRepetitions(n int, lst []string) [][]string {
 	return r
 }
 
+func Variations(input []string, length int) []string {
+	if length <= 0 {
+		return []string{}
+	}
+
+	if length == 1 {
+		return input
+	}
+
+	var variations []string
+
+	for _, prefix := range input {
+		subVariations := Variations(input, length-1)
+		
+		for _, subVar := range subVariations {
+			variations = append(variations, prefix + subVar)
+		}
+	}
+
+	return variations
+}
+
+
 func ModWrap(d, m int) int {
 	res := d % m
 	if (res < 0 && m > 0) || (res > 0 && m < 0) {
@@ -73,9 +96,3 @@ func ModWrap(d, m int) int {
 	return res
 }
 
-func Abs(x int) int {
-	if x < 0 {
-		return -x
-	}
-	return x
-}
