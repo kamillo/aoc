@@ -33,6 +33,24 @@ func CountAdj(x int, y int, grid [][]byte, char byte) (adj int) {
 	return adj
 }
 
+
+func CountPerpendicularAdj(x int, y int, grid [][]byte, char byte) (adj int) {
+	if x+1 < len(grid) && grid[x+1][y] == char {
+		adj++
+	}
+	if y+1 < len(grid[x]) && grid[x][y+1] == char {
+		adj++
+	}
+	if x > 0 && grid[x-1][y] == char {
+		adj++
+	}
+	if y > 0 && grid[x][y-1] == char {
+		adj++
+	}
+	return adj
+}
+
+
 func GetAdj(x int, y int, grid [][]byte, char byte, diagOnly bool) []image.Point {
 	adj := []image.Point{}
 	if !diagOnly {
