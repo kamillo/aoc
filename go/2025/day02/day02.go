@@ -17,9 +17,7 @@ func main() {
 	lines := utils.GetLines("input.txt")
 
 	part1 := 0
-	// part2 := 0
-
-	ranges := make([]Range, 0)
+	part2 := 0
 
 	for _, line := range lines {
 		inputRanges := strings.Split(line, ",")
@@ -28,27 +26,34 @@ func main() {
 			start := utils.JustAtoi(rangeParts[0])
 			end := utils.JustAtoi(rangeParts[1])
 
-			ranges = append(ranges, Range{
-				start: start,
-				end:   end,
-			})
-
 			for i := start; i <= end; i++ {
-				if checkRepeatedHalves(i) {
+				if checkPeriodic(i, 2) {
 					part1 += i
+				}
+
+				if checkPeriodic(i, len(strconv.Itoa(i))) {
+					part2 += i
 				}
 			}
 		}
 	}
 
 	fmt.Printf("Part 1: %d\n", part1)
+	fmt.Printf("Part 2: %d\n", part2)
 }
 
-func checkRepeatedHalves(num int) bool {
+func checkPeriodic(num int, maxModulo int) bool {
 	s := strconv.Itoa(num)
-	if len(s)%2 != 0 {
-		return false
+	n := len(s)
+	for i := 2; i <= maxModulo; i++ {
+		if n%i != 0 {
+			continue
+		}
+
+		partLen := n / i
+		if s[:n-partLen] == s[partLen:] {
+			return true
+		}
 	}
-	half := len(s) / 2
-	return s[:half] == s[half:]
+	return false
 }
