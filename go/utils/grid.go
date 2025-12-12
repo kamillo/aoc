@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"fmt"
 	"image"
 )
 
@@ -33,7 +34,6 @@ func CountAdj(x int, y int, grid [][]byte, char byte) (adj int) {
 	return adj
 }
 
-
 func CountPerpendicularAdj(x int, y int, grid [][]byte, char byte) (adj int) {
 	if x+1 < len(grid) && grid[x+1][y] == char {
 		adj++
@@ -49,7 +49,6 @@ func CountPerpendicularAdj(x int, y int, grid [][]byte, char byte) (adj int) {
 	}
 	return adj
 }
-
 
 func GetAdj(x int, y int, grid [][]byte, char byte, diagOnly bool) []image.Point {
 	adj := []image.Point{}
@@ -85,17 +84,26 @@ func GetAdj(x int, y int, grid [][]byte, char byte, diagOnly bool) []image.Point
 
 func GetPerpendicularAdj(x int, y int, grid [][]byte, condition func(char byte) bool) []image.Point {
 	adj := []image.Point{}
-  if y+1 < len(grid) && condition(grid[y+1][x]) {
-    adj = append(adj, image.Pt(x, y + 1))
-  }
-  if x+1 < len(grid[x]) && condition(grid[y][x+1]) {
-    adj = append(adj, image.Pt(x + 1, y))
-  }
-  if y > 0 && condition(grid[y-1][x]) {
-    adj = append(adj, image.Pt(x, y - 1))
-  }
-  if x > 0 && condition(grid[y][x-1]) {
-    adj = append(adj, image.Pt(x - 1, y))
-  }
-  return adj
+	if y+1 < len(grid) && condition(grid[y+1][x]) {
+		adj = append(adj, image.Pt(x, y+1))
+	}
+	if x+1 < len(grid[x]) && condition(grid[y][x+1]) {
+		adj = append(adj, image.Pt(x+1, y))
+	}
+	if y > 0 && condition(grid[y-1][x]) {
+		adj = append(adj, image.Pt(x, y-1))
+	}
+	if x > 0 && condition(grid[y][x-1]) {
+		adj = append(adj, image.Pt(x-1, y))
+	}
+	return adj
+}
+
+func Print2dArray(grid [][]byte) {
+	for _, line := range grid {
+		for _, char := range line {
+			fmt.Printf("%c", char)
+		}
+		fmt.Println()
+	}
 }

@@ -51,18 +51,28 @@ func Combinations(set []interface{}, n int) (subsets [][]interface{}) {
 	return subsets
 }
 
-func CombinationsWithRepetitions(n int, lst []string) [][]string {
-	if n == 0 {
-		return [][]string{nil}
+func CombinationsWithRepetitions[T any](length int, input []T) [][]T {
+	var results [][]T
+	var current []T
+
+	var generate func(start int)
+	generate = func(start int) {
+		if len(current) == length {
+			dst := make([]T, length)
+			copy(dst, current)
+			results = append(results, dst)
+			return
+		}
+
+		for i := start; i < len(input); i++ {
+			current = append(current, input[i])
+			generate(i) // pass i to allow repetition
+			current = current[:len(current)-1]
+		}
 	}
-	if len(lst) == 0 {
-		return nil
-	}
-	r := CombinationsWithRepetitions(n, lst[1:])
-	for _, x := range CombinationsWithRepetitions(n-1, lst) {
-		r = append(r, append(x, lst[0]))
-	}
-	return r
+
+	generate(0)
+	return results
 }
 
 func Variations(input []string, length int) []string {
@@ -78,15 +88,14 @@ func Variations(input []string, length int) []string {
 
 	for _, prefix := range input {
 		subVariations := Variations(input, length-1)
-		
+
 		for _, subVar := range subVariations {
-			variations = append(variations, prefix + subVar)
+			variations = append(variations, prefix+subVar)
 		}
 	}
 
 	return variations
 }
-
 
 func ModWrap(d, m int) int {
 	res := d % m
@@ -95,4 +104,3 @@ func ModWrap(d, m int) int {
 	}
 	return res
 }
-
